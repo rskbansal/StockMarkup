@@ -21,11 +21,11 @@ def fetch_NSE_stock_price(stock_code):
             latestPrice=data_array[index].split('"')[1]
             return (float(latestPrice.replace(',','')))
     
-n=input("Enter stock code")
+n=input("Enter stock code:")
 fetch_NSE_stock_price(n)
 
 t_iteration=int(input("Number of observations:"))
-d_sleep=int(input("Time interval:"))
+d_sleep=int(input("Time interval(in seconds):"))
 
 data_file=open(n+"_NSE_stock.csv",'w');
 
@@ -35,10 +35,35 @@ while iteration<t_iteration:
     c_time = datetime.now().strftime("%H:%M:%S")
     current_stock_price = fetch_NSE_stock_price(n)
     print (n + ',' + c_date + ','  + c_time + ',' + str(current_stock_price) )
-    print(n + ',' + c_date + ','  + c_time + ',' + str(current_stock_price), file=data_file)
+    print(c_time + ',' + str(current_stock_price), file=data_file)
     time.sleep(d_sleep)
     iteration = iteration + 1
 
 data_file.close()
+
+
+import matplotlib.pyplot as plt
+import csv
+
+x=[]
+y=[]
+
+with open(n+"_NSE_stock.csv", 'r') as csvfile:
+    plots= csv.reader(csvfile, delimiter=',')
+    for row in plots:
+        x.append(row[0])
+        y.append(float(row[1]))
+
+
+plt.plot(x,y, marker='o')
+
+plt.title('Data from the CSV File: Stock Price v/s Time')
+
+plt.xlabel('Time')
+plt.ylabel('Stock Price')
+
+plt.show()
+data = np.genfromtxt("SBIN_NSE_stock.csv", delimiter=",", names=["x", "y"])
+plt.plot(data['x'], data['y'])
 
     
