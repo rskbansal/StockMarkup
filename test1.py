@@ -19,7 +19,7 @@ def fetch_NSE_stock_price(stock_code):
         if 'lastPrice' in item:
             index = data_array.index(item)+1
             latestPrice=data_array[index].split('"')[1]
-            return float(latestPrice.replace(',',''))
+            print(float(latestPrice.replace(',','')))
     
 n=input("Enter stock code")
 fetch_NSE_stock_price(n)
