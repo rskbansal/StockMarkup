@@ -1,7 +1,6 @@
 from nsetools import Nse
 nse=Nse()
 
-
 def code():
     all_stock_codes = nse.get_stock_codes()
     name=input("Enter the name of the stock : ")
