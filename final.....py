@@ -44,6 +44,7 @@ data_file.close()
 
 import matplotlib.pyplot as plt
 import csv
+import numpy as np
 
 x=[]
 y=[]
@@ -63,7 +64,7 @@ plt.xlabel('Time')
 plt.ylabel('Stock Price')
 
 plt.show()
-#data = np.genfromtxt("SBIN_NSE_stock.csv", delimiter=",", names=["x", "y"])
-#plt.plot(data['x'], data['y'])
+data = np.genfromtxt("SBIN_NSE_stock.csv", delimiter=",", names=["x", "y"])
+plt.plot(data['x'], data['y'])
 
     
