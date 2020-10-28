@@ -23,3 +23,21 @@ def fetch_NSE_stock_price(stock_code):
     
 n=input("Enter stock code")
 fetch_NSE_stock_price(n)
+
+t_iteration=int(input("Number of observations:"))
+d_sleep=int(input("Time interval:"))
+
+data_file=open(n+"_NSE_stock.csv",'w');
+
+iteration=0
+while iteration<t_iteration:
+    c_date = date.today().strftime("%B %d, %Y")
+    c_time = datetime.now().strftime("%H:%M:%S")
+    current_stock_price = fetch_NSE_stock_price(n)
+    print (n + ',' + c_date + ','  + c_time + ',' + str(current_stock_price) )
+    print(n + ',' + c_date + ','  + c_time + ',' + str(current_stock_price), file=data_file)
+    time.sleep(d_sleep)
+    iteration = iteration + 1
+data_file.close()
+
+    
