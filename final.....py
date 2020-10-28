@@ -1,4 +1,5 @@
 ## fetch live stock price and store in CSV file
+
 import sys
 import requests
 from bs4 import BeautifulSoup
@@ -8,6 +9,8 @@ from datetime import date
 from datetime import datetime
 import nsetools
 from nsetools import Nse
+
+
 def fetch_NSE_stock_price(stock_code):
     
     stock_url  = 'https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/GetQuote.jsp?symbol='+str(stock_code)
