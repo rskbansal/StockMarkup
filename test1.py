@@ -38,6 +38,7 @@ while iteration<t_iteration:
     print(n + ',' + c_date + ','  + c_time + ',' + str(current_stock_price), file=data_file)
     time.sleep(d_sleep)
     iteration = iteration + 1
+
 data_file.close()
 
     
