@@ -9,6 +9,7 @@ from datetime import date
 from datetime import datetime
 import nsetools
 from nsetools import Nse
+import numpy as np
 
 
 def fetch_NSE_stock_price(stock_code):
@@ -47,6 +48,7 @@ data_file.close()
 
 import matplotlib.pyplot as plt
 import csv
+import numpy as np
 
 x=[]
 y=[]
