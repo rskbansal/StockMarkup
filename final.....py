@@ -50,7 +50,7 @@ import matplotlib.pyplot as plt
 import csv
 import numpy as np
 
-plt.style.use('fivethirtyeight')
+plt.style.use('dark_background')
 
 x=[]
 y=[]
