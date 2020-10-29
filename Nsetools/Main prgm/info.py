@@ -4,18 +4,14 @@ print("Welcome to the Stock Market analysis")
 from datetime import datetime
 import one
 import logs
-
-def time():
-    now = datetime.now()
-    current_time = now.strftime("%M:%S")
-    print("Current Time =", current_time)
+import final 
 
 
 def stockinfo():
     name=one.code()
     q=nse.get_quote(name)
-    full=input("What do you want FULL INFO or just PRICE")
-    if full=="FULL" or full=="FULL INFO" or full=="full" or full=="full info" :
+    full=input("What do you want 1)FULL INFORMATION or 2)JUST PRICE  Enter 1/2?")
+    if full=="1" or full=="FULL INFO" or full=="full" or full=="full info" or full=="Full Information":
         a=["pricebandlower","marketType","applicableMargin","pricebandupper","bcEndDate","adhocMargin","exDate","bcStartDate","css_status_desc","securityVar","cm_adj_high_dt","indexVar","ndEndDate","recordDate","cm_adj_low_dt","varMargin","surv_indicator","ndStartDate","series"]
         for i in a:
             del q[i]
@@ -57,7 +53,12 @@ def toplosers():
 
 
 def graph():
-    stockinfo()
+    
+    #all_stock_codes = nse.get_stock_codes()
+    #print(all_stock_codes)
+    n=input("Enter stock code:")
+    final.graph(n)
+    
     
     
     
@@ -80,3 +81,6 @@ if ans=="3":
     
     print("Losers")
     toplosers()
+
+if ans=="4":
+    graph()
