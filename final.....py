@@ -50,6 +50,8 @@ import matplotlib.pyplot as plt
 import csv
 import numpy as np
 
+plt.style.use('fivethirtyeight')
+
 x=[]
 y=[]
 
