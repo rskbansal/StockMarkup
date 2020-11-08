@@ -1,4 +1,4 @@
-## fetch live stock price and store in CSV file
+    ## fetch live stock price and store in CSV file
 
 import sys
 import requests
@@ -38,8 +38,6 @@ while iteration<t_iteration:
     c_date = date.today().strftime("%B %d, %Y")
     c_time = datetime.now().strftime("%H:%M:%S")
     current_stock_price = fetch_NSE_stock_price(n)
-    print (n + ',' + c_date + ','  + c_time + ',' + str(current_stock_price) )
-    print(c_time + ',' + str(current_stock_price), file=data_file)
     time.sleep(d_sleep)
     iteration = iteration + 1
 
@@ -54,23 +52,24 @@ plt.style.use('dark_background')
 
 x=[]
 y=[]
+plt.show()
 
 with open(n+"_NSE_stock.csv", 'r') as csvfile:
     plots= csv.reader(csvfile, delimiter=',')
     for row in plots:
         x.append(row[0])
         y.append(float(row[1]))
-
-
-plt.plot(x,y, marker='o')
+        print (n + ',' + c_date + ','  + c_time + ',' + str(current_stock_price) )
+        print(c_time + ',' + str(current_stock_price), file=data_file)
 
 plt.title('Data from the CSV File: Stock Price v/s Time')
 
 plt.xlabel('Time')
 plt.ylabel('Stock Price')
 
+plt.plot(x,y)
 plt.show()
-data = np.genfromtxt("SBIN_NSE_stock.csv", delimiter=",", names=["x", "y"])
-plt.plot(data['x'], data['y'])
+#data = np.genfromtxt("SBIN_NSE_stock.csv", delimiter=",", names=["x", "y"])
+#plt.plot(data['x'], data['y'])
 
     
